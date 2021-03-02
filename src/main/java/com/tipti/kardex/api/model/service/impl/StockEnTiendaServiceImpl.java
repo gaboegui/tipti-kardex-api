@@ -22,7 +22,7 @@ public class StockEnTiendaServiceImpl implements StockEnTiendaService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<StockEnTienda> findAll(){
-		return stockDao.findAll();
+		return (List<StockEnTienda>) stockDao.findAll();
 	}
 	
 	@Override

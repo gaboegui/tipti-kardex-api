@@ -1,8 +1,9 @@
 package com.tipti.kardex.api.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,13 +33,14 @@ public class StockEnTiendaController {
 	StockEnTiendaService stockService;
 
 	/**
-	 * Listar todos los elementos
+	 * Listar todos los elementos, se implementa paginacion con el repositorio
+	 * debido al gran numero de elementos (aprox 150.000) 
 	 * 
-	 * @return
+	 * @return Pagina con máximo 30 elementos cada una. 
 	 */
 	@GetMapping(value = { "/list", "/", "" })
-	public List<StockEnTienda> list() {
-		return stockService.findAll();
+	public Page<StockEnTienda> list( @PageableDefault(page = 0, size = 30) Pageable page) {
+		return stockService.findAll(page);
 	}
 
 	/**
