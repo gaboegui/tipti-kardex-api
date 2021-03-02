@@ -13,7 +13,7 @@ Existen varios ENDPOINTS para administrar las entidades, estos fueron generados 
 
 En cambio debido a la clave compuesta que maneja la entidad StockEntienda, se creo un Controller propio para exponer esta funcionalidad en la API StockEntienda:
 Ejemplos:
-- Listar todos: GET: http://localhost:8080/api/stockentienda/
+- Listar todos (incluye paginación): GET: http://localhost:8080/api/stockentienda/
 - Para obtener un registro: GET http://localhost:8080/api/stockentienda/prod/1/tienda/1/sku/001-052365
 - Para borrar un registro:  DELETE http://localhost:8080/api/stockentienda/prod/1/tienda/1/sku/001-052365
 - Para crear un registro: POST http://localhost:8080/api/stockentienda/nuevo
